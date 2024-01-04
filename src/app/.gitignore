@@ -1,0 +1,14 @@
+# Node.js
+node_modules/
+
+# Angular
+/dist/
+/e2e/*.log
+/e2e/*.screenshot
+/e2e/*.xml
+
+# IDE
+.idea/
+
+# Misc
+.DS_Store
