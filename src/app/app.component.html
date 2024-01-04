@@ -1,14 +1,12 @@
 
-<div class="invisible">
+<div class="hidden">
 	<button (click)="goToNextStep()">Next</button>
   <button (click)="goToPreviousStep()">Previous</button>
 </div>
 
-<div #steps *ngFor="let item of [1,2,3,4]" class="h-screen" [ngClass]="'step-' + item" [id]="'div-' + item">
-  <app-profile *ngIf="current === 0 && ready" [ngClass]="{'opacity-100 transition-opacity duration-500 ease-in-out': ready}"></app-profile>
-  <app-info *ngIf="current === 1 && ready" [ngClass]="{'opacity-100 transition-opacity duration-500 ease-in-out': ready}"></app-info>
-  <app-details *ngIf="current === 2 && ready" [ngClass]="{'opacity-100 transition-opacity duration-500 ease-in-out': ready}"></app-details>
-  <app-projects *ngIf="current === 3 && ready" [ngClass]="{'opacity-100 transition-opacity duration-500 ease-in-out': ready}"></app-projects>
+<div #steps *ngFor="let item of [1,2,3,4]" [ngClass]="['h-screen','step-' + item, 'transition-all', getDynamicClass()]" [id]="'div-' + item">
+    <app-profile *ngIf="current === 0 && ready" [ngClass]="{'trans-in': ready, 'trans-out': !ready}"></app-profile>
+    <app-info *ngIf="current === 1 && ready" [ngClass]="{'trans-in': ready, 'trans-out': !ready}"></app-info>
+    <app-details *ngIf="current === 2 && ready" [ngClass]="{'trans-in': ready, 'trans-out': !ready}"></app-details>
+    <app-projects *ngIf="current === 3 && ready" [ngClass]="{'trans-in': ready, 'trans-out': !ready}"></app-projects>
 </div>
-
-

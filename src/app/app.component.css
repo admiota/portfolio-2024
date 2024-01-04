@@ -22,4 +22,17 @@
   .h-screen.step-4 {
     background-color: #1c2835;
   }
+
+  :host {
+    display: block;
+  }
+  
+  .trans-in {
+    opacity: 1;
+  }
+  
+  .trans-out{
+    opacity: 0;
+    transition: opacity 0.7s ease 0.5s;
+  }
   

@@ -20,13 +20,14 @@ export class AppComponent {
 
   @HostListener('mousewheel', ['$event'])
   public onMouseWheel(args: WheelEvent) {
+    this.ready=false;
     args.preventDefault();
 
-    if (args.deltaY > 0) {
+    if (args.deltaY > 100) {
       this.goToNextStep();
     }
 
-    if (args.deltaY < 0) {
+    if (args.deltaY < 100) {
       this.goToPreviousStep();
     }
   }
@@ -54,8 +55,11 @@ export class AppComponent {
       block: 'start',
       inline: 'nearest'
     });
-    setTimeout(() => {
       this.ready = true;
-    }, 2000);
   }
+
+  public getDynamicClass() {
+    return this.ready ? 'trans-in' : 'trans-out';
+  }
+  
 }
