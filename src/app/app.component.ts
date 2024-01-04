@@ -20,7 +20,7 @@ export class AppComponent {
 
   @HostListener('mousewheel', ['$event'])
   public onMouseWheel(args: WheelEvent) {
-    this.ready=false;
+    
     args.preventDefault();
 
     if (args.deltaY > 100) {
@@ -55,7 +55,6 @@ export class AppComponent {
       block: 'start',
       inline: 'nearest'
     });
-      this.ready = true;
   }
 
   public getDynamicClass() {

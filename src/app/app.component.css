@@ -20,7 +20,7 @@
   }
   
   .h-screen.step-4 {
-    background-color: #1c2835;
+    background-color: #1c2835; 
   }
 
   :host {
@@ -28,11 +28,13 @@
   }
   
   .trans-in {
-    opacity: 1;
+    /* background-color: green; */
+    background-color: #6579c8;
   }
   
   .trans-out{
-    opacity: 0;
-    transition: opacity 0.7s ease 0.5s;
+    /* background-color: red; */
+    background-color: #ffffff00;
+    transition: background-color 0.7s ease 0.5s;
   }
   
