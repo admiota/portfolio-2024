@@ -1,0 +1,9 @@
+.app-section {
+    height: 100vh;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+  }
+  
+  .app-section.visible {
+    opacity: 1;
+  }

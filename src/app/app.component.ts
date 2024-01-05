@@ -1,11 +1,51 @@
 import { Component, ElementRef, HostListener, QueryList, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
+import { VisibilityService } from './visibility.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public current: number = 0;
+  isChildVisible: boolean = false;
+  arrVisibility:boolean[]=[true,false,false,false];
+  toggleVisibility(number: number) {
+    this.arrVisibility.forEach((value, index) => {
+      if(index === number){
+        this.arrVisibility[index] = true;
+      }else{
+        this.arrVisibility[index] = false;
+      }
+    });
+    console.log(this.arrVisibility);
+  }
+
+  componentToShow = 'profile';
+  ready = true;
+
+  constructor(private el: ElementRef, private visibilityService: VisibilityService) {}
+
+  scrollToComponent(componente: string, index:number): void {
+    const element = this.el.nativeElement.querySelector(`#${componente}`);
+    if (element) {
+      this.ready = false;
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+      this.toggleVisibility(index)
+    }
+  }
+  
+  onAnimationEnd(): void {
+    this.ready = true;
+  }
+}
+
+
+
+/*public current: number = 0;
   @ViewChild('dynamicComponentTemplate', { read: ViewContainerRef })
   dynamicComponentTemplate!: ViewContainerRef;
 
@@ -13,21 +53,21 @@ export class AppComponent {
   }
 
   public ready: boolean = true;
-  public fadeInClass: string = ''; 
+  public fadeInClass: string = '';
 
   @ViewChildren('steps')
   public readonly steps!: QueryList<ElementRef>;
 
   @HostListener('mousewheel', ['$event'])
   public onMouseWheel(args: WheelEvent) {
-    
+
     args.preventDefault();
 
-    if (args.deltaY > 100) {
+    if (args.deltaY > 20) {
       this.goToNextStep();
     }
 
-    if (args.deltaY < 100) {
+    if (args.deltaY < 20) {
       this.goToPreviousStep();
     }
   }
@@ -59,6 +99,4 @@ export class AppComponent {
 
   public getDynamicClass() {
     return this.ready ? 'trans-in' : 'trans-out';
-  }
-  
-}
+  }*/

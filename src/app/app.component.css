@@ -1,40 +1,14 @@
-
-
-/* .main-gradient{
-    background: rgb(180,217,230);
-    background: linear-gradient(90deg, rgba(180,217,230,1) 4%, rgba(163,197,215,1) 74%, rgba(97,146,180,1) 74%);
-} */
-
-
-  
-  .h-screen.step-1 {
-    background: rgb(180,217,230);
+.componente-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  .h-screen.step-2 {
-    background-color: #6192b4;
+  .fade-in-enter-active {
+    transition: opacity 0.5s;
   }
   
-  .h-screen.step-3 {
-    background-color: #5283a5;
+  .fade-in-enter, .fade-in-leave-to {
+    opacity: 0;
   }
-  
-  .h-screen.step-4 {
-    background-color: #1c2835; 
-  }
-
-  :host {
-    display: block;
-  }
-  
-  .trans-in {
-    /* background-color: green; */
-    background-color: #6579c8;
-  }
-  
-  .trans-out{
-    /* background-color: red; */
-    background-color: #ffffff00;
-    transition: background-color 0.7s ease 0.5s;
-  }
-  

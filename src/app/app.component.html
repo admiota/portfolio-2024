@@ -1,15 +1,24 @@
+<nav class="fixed top-0 left-0 w-full bg-gray-800 p-4 z-50">
+  <div class="flex justify-around">
+    <button (click)="scrollToComponent('profile', 0)">Componente 1</button>
+    <button (click)="scrollToComponent('details', 1)">Componente 2</button>
+    <button (click)="scrollToComponent('info', 2)">Componente 3</button>
+    <button (click)="scrollToComponent('projects', 3)">Componente 4</button>
+  </div>
+</nav>
 
-<div class="hidden">
-	<button (click)="goToNextStep()">Next</button>
-  <button (click)="goToPreviousStep()">Previous</button>
+<div id="profile"  class="componente-container bg-blue-200">
+  <app-profile [isVisible]='arrVisibility[0]'></app-profile>
 </div>
 
-<div #steps *ngFor="let item of [1,2,3,4]" class="h-screen" [ngClass]="['step-' + item, getDynamicClass()]" [id]="'div-' + item">
-    <app-profile *ngIf="current === 0" [ngClass]="{'trans-in': ready, 'trans-out': !ready}"></app-profile>
-    <app-info *ngIf="current === 1" [ngClass]="{'trans-in': ready, 'trans-out': !ready}"></app-info>
-    <app-details *ngIf="current === 2" [ngClass]="{'trans-in': ready, 'trans-out': !ready}"></app-details>
-    <app-projects *ngIf="current === 3" [ngClass]="{'trans-in': ready, 'trans-out': !ready}"></app-projects>
+<div id="details" class="componente-container bg-green-200">
+  <app-details [isVisible]="arrVisibility[1]"></app-details>
 </div>
 
+<div id="info" class="componente-container bg-yellow-200">
+  <app-info [isVisible]="arrVisibility[2]"></app-info>
+</div>
 
-
+<div id="projects" class="componente-container bg-red-200">
+  <app-projects [isVisible]="arrVisibility[3]"></app-projects>
+</div>
