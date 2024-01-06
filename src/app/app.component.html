@@ -1,24 +1,26 @@
-<nav class="fixed top-0 left-0 w-full bg-gray-800 p-4 z-50">
-  <div class="flex justify-around">
-    <button (click)="scrollToComponent('profile', 0)">Componente 1</button>
-    <button (click)="scrollToComponent('details', 1)">Componente 2</button>
-    <button (click)="scrollToComponent('info', 2)">Componente 3</button>
-    <button (click)="scrollToComponent('projects', 3)">Componente 4</button>
+<nav class="fixed top-0 left-0 w-full bg-gray-800 p-4 z-50 hidden">
+  <div class="flex justify-around" #navbarButtons>
+    <button #btnProfile (click)="scrollToComponent('profile', 0)">Componente 1</button>
+    <button #btnDetails (click)="scrollToComponent('details', 1)">Componente 2</button>
+    <button #btnInfo (click)="scrollToComponent('info', 2)">Componente 3</button>
+    <button #btnProjects (click)="scrollToComponent('projects', 3)">Componente 4</button>
   </div>
 </nav>
 
-<div id="profile"  class="componente-container bg-blue-200">
-  <app-profile [isVisible]='arrVisibility[0]'></app-profile>
-</div>
-
-<div id="details" class="componente-container bg-green-200">
-  <app-details [isVisible]="arrVisibility[1]"></app-details>
-</div>
-
-<div id="info" class="componente-container bg-yellow-200">
-  <app-info [isVisible]="arrVisibility[2]"></app-info>
-</div>
-
-<div id="projects" class="componente-container bg-red-200">
-  <app-projects [isVisible]="arrVisibility[3]"></app-projects>
+<div class="w-full">
+  <div id="profile" class="componente-container">
+    <app-profile [isVisible]='arrVisibility[0]'></app-profile>
+  </div>
+  
+  <div id="details" class="componente-container bg-green-200">
+    <app-details [isVisible]="arrVisibility[1]"></app-details>
+  </div>
+  
+  <div id="info" class="componente-container bg-yellow-200">
+    <app-info [isVisible]="arrVisibility[2]"></app-info>
+  </div>
+  
+  <div id="projects" class="componente-container bg-red-200">
+    <app-projects [isVisible]="arrVisibility[3]"></app-projects>
+  </div>
 </div>

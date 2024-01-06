@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { TypeWriterService } from '../services/typeWriter.service';
 
 @Component({
   selector: 'app-profile',
@@ -27,9 +28,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
   @Input() isVisible: any;
   componentVisibility: string = 'visible';
+  typedTexts$ = this.typewriterService.text$;
+
+  constructor(private typewriterService: TypeWriterService) {}
 
   ngOnInit() {
     this.componentVisibility = 'visible';
+    
+    const texts = ['Hola', 'Adiós', 'Otro texto'];
+    const speed = 100;
+    this.typewriterService.onTypeText(texts, speed);
   }
   
   ngOnChanges() {
@@ -40,7 +48,6 @@ export class ProfileComponent implements OnInit {
     this.componentVisibility = this.isVisible ? 'visible' : 'hidden';
   }
 
-  constructor() {}
 
 }
 
