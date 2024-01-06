@@ -1,8 +1,6 @@
 .componente-container {
     min-height: 100vh;
-    display: flex;
     align-items: center;
-    justify-content: center;
   }
   
   .fade-in-enter-active {

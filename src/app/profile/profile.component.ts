@@ -35,7 +35,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.componentVisibility = 'visible';
     
-    const texts = ['Hola', 'Adiós', 'Otro texto'];
+    const texts = ['Frontend Developer', 'Programming passionated', 'Fanatic about efficiency', 'Interface Design Lover','Continuous Learner'];
+
     const speed = 100;
     this.typewriterService.onTypeText(texts, speed);
   }
