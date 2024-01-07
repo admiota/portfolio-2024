@@ -58,6 +58,7 @@ export class AppComponent {
         this.arrVisibility[index] = false;
       }
     });
+    console.log(this.arrVisibility)
   }
 
   componentToShow = 'profile';
